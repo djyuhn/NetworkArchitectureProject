@@ -7,17 +7,17 @@ message = input("Enter:: ")
 
 while True:
         if message == 'Bye from Client':
-                socket.send(m)
+                socket.send(message)
                 data=socket.recv(1024)
                 print(str(data))
                 break
         elif message == 'Hello from Client':
-                socket.send(m)
+                socket.send(message)
                 data=socket.recv(1024)
                 print(str(data))
                 m=input()
         else:
-                socket.send(m)
+                socket.send(message)
                 data = socket.recv(1024)
                 print(str(data))
                 m=input()
