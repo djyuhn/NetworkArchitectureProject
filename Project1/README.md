@@ -93,3 +93,4 @@ Image of the final output of transferring a file.
 
 [Lipsum](https://www.lipsum.com/feed/html) - Used to generate text to meet the file size requirements
 
+[SSH.com](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter6.html#psftp-starting) - Used for reference on transferring files using PSFTP
