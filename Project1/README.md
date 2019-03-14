@@ -5,22 +5,25 @@ This project for Network Architecture I is split into two parts.
 ## Part 1:
 
 ### Task:
-Develop and deploy a simple TCP client and server programs on [GENI](https://portal.geni.net/).
+Develop and deploy a simple TCP client and server programs on [GENI](https://portal.geni.net/). To demonstrate the functionality of the programs, screenshots of the exchanges will be provided.
 
-Show the screenshots of simple message exchanges.
+The tasks for this part are split into the following subparts, Part A and Part B:
 
- * (20%) Start from client message ‘Hello from Client-your names’ and server responses
-with ‘Hello from Server-your names’. Then messages from each side are echoed to each
-other. The program quit the program with typing ‘Bye from Client-your name’ and ‘Bye
-from Server-your name’.
+#### Part A
 
-* (30%) A client sends a large text file (> 10KB) to a server. (A small file transfer will
-receive only a partial credit (10% only)
-Server prints the file on the screen,
-Server saves the file in a local system,
-Server appends one more line (eg. ‘This is an added line from a server) to the file,
-And send the updated file back to the client.
-Client shows the file on the screen after it fully receives the file.
+ * Have the client message, “Hello from Client: DJ Yuhn” to the server.
+ * Have the server respond with, "Hello from Server: DJ Yuhn".
+ * Have the messages echo between the client and server nodes.
+ * Quit the program by typing, "Bye from Client: DJ Yuhn".
+ * Have server respond, "Bye from Server: DJ Yuhn".
+
+#### Part B
+
+- Have the client message send a large text file greater than 10KB to the server.
+- Have the server print the contents of this file to the screen.
+- Have the server save the file locally.
+- Have the server append a new line to the file (ex: "Hello from the Server!") before returning the updated file to the client.
+- Have the client print the contents of this file to the screen.
 
 ### Steps
 
