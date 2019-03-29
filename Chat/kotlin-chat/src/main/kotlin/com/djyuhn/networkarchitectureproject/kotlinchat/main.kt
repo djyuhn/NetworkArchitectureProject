@@ -16,15 +16,15 @@ fun main(args: Array<String>) {
     println("Enter your message: ")
     var userInput = readLine()!!
 
-    while (userInput != "exit") {
+    while (userInput.toLowerCase() != "exit") {
         val data = chatClient.sendMessage(userInput)
-        println("This came from server:\n$data")
+        println("Server Response:: $data")
         println("Enter your message: ")
         userInput = readLine()!!
     }
 
     val data = chatClient.sendMessage(userInput)
-    println("This came from server:\n$data")
+    println("Server Response:: $data")
     chatClient.stopConnection()
 
 }
