@@ -8,7 +8,7 @@ import com.djyuhn.networkarchitectureproject.kotlinchat.client.ChatClient
  */
 
 fun main(args: Array<String>) {
-    val ip = "10.10.1.1"
+    val ip = "204.76.187.50"
     val port = 5000
 
     val chatClient = ChatClient(ip, port)

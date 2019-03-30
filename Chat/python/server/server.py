@@ -2,7 +2,7 @@ import socket
 import struct
 from threading import Thread
 
-HOST = '10.10.1.1'
+HOST = '204.76.187.50'
 PORT = 5000
 SOCK = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 SOCK.bind((HOST, PORT))
@@ -34,18 +34,21 @@ def handle_client(client, address):
     name = receive_message(client)
     greeting = "Server welcomes %s. To quit, type #quit" % name
     send_message(client, greeting)
-    announcement = "%s from [%s] has connected with the server." % (name, '{}:{}'.format(address[0], address[1]))
-    announce_all(announcement)
+    # announcement = "%s from [%s] has connected with the server." % (name, '{}:{}'.format(address[0], address[1]))
+    # announce_all(announcement)
     CLIENTS[client] = name
     while True:
         receive = receive_message(client)
         if str.lower(receive) != "#quit":
-            announce_all(receive, name + ': ')
+            print("{}: {}".format(name, receive))
+            send_message(client, receive)
+            # announce_all(receive, name + ': ')
         else:
             send_message(client, "#quit")
+            print("{}: {}".format(name, receive))
             client.close()
             del CLIENTS[client]
-            announce_all("%s has left." % name)
+            # announce_all("%s has left." % name)
             break
 
 
