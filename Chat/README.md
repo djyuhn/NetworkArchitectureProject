@@ -32,6 +32,22 @@ Demo of Task 1
 
 Screenshot of Task 1
 
+### Task2
+
+![Part2-Task2-Demo](docs/screenshots/Part2-Task2-Demo.gif)
+
+Demo of Task2
+
+
+
+![Part2-Task2](docs/screenshots/Part2-Task2.png)
+
+Screenshot of Task2
+
+### Task3
+
+
+
 
 
 ## References

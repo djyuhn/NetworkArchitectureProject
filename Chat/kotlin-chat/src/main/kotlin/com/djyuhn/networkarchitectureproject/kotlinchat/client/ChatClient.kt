@@ -29,7 +29,7 @@ class ChatClient(private val ip: String, private val port: Int) {
         return receiveMessage()
     }
 
-    private fun receiveMessage(): String {
+    fun receiveMessage(): String {
         val messageLength = ByteArray(4)
         receive.read(messageLength, 0, messageLength.size)
         val message = ByteArray(ByteBuffer.wrap(messageLength).int)

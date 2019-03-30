@@ -13,18 +13,19 @@ fun main(args: Array<String>) {
 
     val chatClient = ChatClient(ip, port)
 
-    println("Enter your message: ")
+    println(chatClient.receiveMessage())
+
     var userInput = readLine()!!
 
-    while (userInput.toLowerCase() != "exit") {
+    while (userInput.toLowerCase() != "#quit") {
         val data = chatClient.sendMessage(userInput)
-        println("Server Response:: $data")
-        println("Enter your message: ")
+        println("Server-> $data")
+        print("Enter your message: ")
         userInput = readLine()!!
     }
 
     val data = chatClient.sendMessage(userInput)
-    println("Server Response:: $data")
+    println("Server responded with: $data")
     chatClient.stopConnection()
 
 }
