@@ -20,13 +20,12 @@ class ChatClient(private val ip: String, private val port: Int) {
         receive = BufferedInputStream(socket.getInputStream())
     }
 
-    fun sendMessage(message: String): String {
+    fun sendMessage(message: String) {
         val messageLength = ByteBuffer.allocate(4) // Send message length integer as fixed size
         messageLength.putInt(message.length)
         send.write(messageLength.array())
         send.write(message.toByteArray())
         send.flush()
-        return receiveMessage()
     }
 
     fun receiveMessage(): String {

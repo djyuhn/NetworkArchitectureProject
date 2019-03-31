@@ -1,31 +1,40 @@
 package com.djyuhn.networkarchitectureproject.kotlinchat
 
 import com.djyuhn.networkarchitectureproject.kotlinchat.client.ChatClient
+import kotlin.concurrent.thread
+import java.net.InetAddress
+
 
 /**
  * @author djyuhn
  * 3/27/2019
  */
 
-fun main(args: Array<String>) {
+fun main() {
     val ip = "204.76.187.50"
     val port = 5000
 
     val chatClient = ChatClient(ip, port)
+    val clientAddress = InetAddress.getLocalHost()
 
     println(chatClient.receiveMessage())
 
-    var userInput = readLine()!!
+    thread(start = true) {
+        var received = chatClient.receiveMessage()
+        while (received != "${clientAddress.hostAddress}#quit") {
+            println(received)
+            received = chatClient.receiveMessage()
+        }
+        println(received)
+    }
 
+    var userInput = readLine()!!
     while (userInput.toLowerCase() != "#quit") {
-        val data = chatClient.sendMessage(userInput)
-        println("Server-> $data")
-        print("Enter your message: ")
+        chatClient.sendMessage(userInput)
         userInput = readLine()!!
     }
 
-    val data = chatClient.sendMessage(userInput)
-    println("Server responded with: $data")
+    chatClient.sendMessage(userInput)
+    Thread.sleep(200)
     chatClient.stopConnection()
-
 }

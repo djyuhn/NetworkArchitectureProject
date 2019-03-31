@@ -25,36 +25,34 @@ def accept_incoming_clients():
     while True:
         client, address = SOCK.accept()
         print("[%s] has connected..." % ('{}:{}'.format(address[0], address[1])))
-        greeting = "Server welcomes you to the chat.\nEnter your name: "
+        greeting = "Server welcomes you to the chat.\nTo leave enter-> #quit\nEnter your name: "
         send_message(client, greeting)
         Thread(target=handle_client, args=(client, address)).start()
 
 
 def handle_client(client, address):
     name = receive_message(client)
-    greeting = "Server welcomes %s. To quit, type #quit" % name
-    send_message(client, greeting)
-    # announcement = "%s from [%s] has connected with the server." % (name, '{}:{}'.format(address[0], address[1]))
-    # announce_all(announcement)
+    announcement = "%s from [%s] has connected with the server." % (name, '{}:{}'.format(address[0], address[1]))
+    announce_all(announcement, client)
     CLIENTS[client] = name
     while True:
         receive = receive_message(client)
         if str.lower(receive) != "#quit":
             print("{}: {}".format(name, receive))
-            send_message(client, receive)
-            # announce_all(receive, name + ': ')
+            announce_all(receive, client, name + ': ')
         else:
-            send_message(client, "#quit")
+            send_message(client, address[0] + "#quit")
             print("{}: {}".format(name, receive))
             client.close()
             del CLIENTS[client]
-            # announce_all("%s has left." % name)
+            announce_all("%s has left." % name, client)
             break
 
 
-def announce_all(message, prefix=''):
+def announce_all(message, calling_sock, prefix=''):
     for sock in CLIENTS:
-        send_message(sock, prefix + message)
+        if sock != calling_sock:
+            send_message(sock, prefix + message)
 
 
 def send_message(sock, message):

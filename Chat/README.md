@@ -18,6 +18,8 @@ The two programming languages used for this assignment are: Python and Kotlin. E
 
 [GENI](https://portal.geni.net/) was used to setup the server and clients.
 
+Threading was used to allow for concurrent execution of sending and receiving messages between the clients and server.
+
 
 
 ## Process
@@ -46,7 +48,29 @@ Screenshot of Task2
 
 ### Task3
 
+![Part2-Task3-Demo](docs/screenshots/Part2-Task3-Demo.gif)
 
+Demo of Task3
+
+
+
+![Part2-Task3](docs/screenshots/Part2-Task3.png)
+
+Screenshot of Task3
+
+
+
+### Task4
+
+![Part2-Task4-Demo](docs/screenshots/Part2-Task4-Demo.gif)
+
+Demo of Task4
+
+
+
+![Part2-Task4](docs/screenshots/Part2-Task4.png)
+
+Screenshot of Task4
 
 
 
